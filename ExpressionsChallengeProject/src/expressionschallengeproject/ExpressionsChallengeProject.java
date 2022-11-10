@@ -5,6 +5,7 @@
  */
 package expressionschallengeproject;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -19,11 +20,26 @@ public class ExpressionsChallengeProject {
         
         Scanner input = new Scanner(System.in);
 
-        int n, d;
-        n = input.nextInt();
-        d = input.nextInt();
+        BigInteger n, d;
+        //n = input.nextBigInteger();
+        //d = input.nextBigInteger();
 
-        
+        for(BigInteger i = 1; i < 20; i++){
+            System.out.println(catalan(i));
+        }
+    }
+
+    private static BigInteger fatorial(BigInteger x){
+        for(BigInteger i = x-1; i > 0; i--){
+            x *= i;
+        }
+        return x;
+    }
+
+
+    private static BigInteger catalan(BigInteger n){
+
+        return (fatorial(new BigInteger(""+n).add(new BigInteger("1"))).divide((fatorial(new BigInteger(""+n).add(new BigInteger("1"))).multiply( fatorial(new BigInteger(""+n))))));
     }
     
 }
