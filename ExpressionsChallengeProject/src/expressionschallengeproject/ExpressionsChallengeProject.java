@@ -24,14 +24,15 @@ public class ExpressionsChallengeProject {
         //n = input.nextBigInteger();
         //d = input.nextBigInteger();
 
-        for(BigInteger i = 1; i < 20; i++){
+        for(BigInteger i = BigInteger.valueOf(1); i.compareTo(BigInteger.valueOf(100)) <= 0; i = i.add(BigInteger.valueOf(1))){
             System.out.println(catalan(i));
         }
     }
 
     private static BigInteger fatorial(BigInteger x){
-        for(BigInteger i = x-1; i > 0; i--){
-            x *= i;
+        for(BigInteger i = x.subtract(new BigInteger("1")); i.compareTo(new BigInteger("0")) == -1; i = i.subtract(new BigInteger("1"))){
+            
+            x = x.multiply(i);
         }
         return x;
     }
